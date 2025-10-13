@@ -1,5 +1,5 @@
 <div>
-  <button>
+  <button (click)="onSelectedUser()">
     <!-- <img src="/assets/users/{{ selectedUser.avatar }}" alt="User avatar" /> -->
     <!-- <img [src]="`/assets/users/${ selectedUser.avatar }`" alt="User avatar" /> -->
     <img [src]="imagePath" [alt]="selectedUser.name" />
