@@ -9,7 +9,8 @@ import { Component, Input } from '@angular/core';
 export class UserComponent {
   // passo i dati al componente dall'esterno, dal componente padre
   // creo proprietà con il decorator @Input
-  @Input() avatar!: string;
+  // col ! convinco typescript che quell'input property riceverà un valore, se passo un oggetto di configurazione all'Input con la proprietà required true sarò costretto a passare un valore dal parent altrimenti avrò un errore. Senza questa opzione potrei non passare nulla
+  @Input({ required: true }) avatar!: string;
   @Input() name!: string;
 
   get imagePath(): string {
