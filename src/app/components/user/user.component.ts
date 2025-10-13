@@ -1,7 +1,4 @@
-import { Component, computed, Signal, signal, WritableSignal } from '@angular/core';
-import { DUMMY_USERS } from '../../dummy-users';
-
-const randomIndex: number = Math.floor(Math.random() * DUMMY_USERS.length);
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -10,12 +7,14 @@ const randomIndex: number = Math.floor(Math.random() * DUMMY_USERS.length);
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  // selectedUser: WritableSignal<{ id: string; name: string; avatar: string }> = signal(
-  //   DUMMY_USERS[randomIndex]
-  // );
-  // imagePathComputed: Signal<string> = computed(() => `/assets/users/${this.selectedUser().avatar}`);
-  // onSelectedUser(): void {
-  //   const randomIndex: number = Math.floor(Math.random() * DUMMY_USERS.length);
-  //   this.selectedUser.set(DUMMY_USERS[randomIndex]);
-  // }
+  // passo i dati al componente dall'esterno, dal componente padre
+  // creo proprietà con il decorator @Input
+  @Input() avatar!: string;
+  @Input() name!: string;
+
+  get imagePath(): string {
+    return `/assets/users/${this.avatar}`;
+  }
+
+  onSelectedUser(): void {}
 }
