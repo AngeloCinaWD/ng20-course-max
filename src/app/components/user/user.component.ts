@@ -18,6 +18,8 @@ export class UserComponent {
     return `/assets/users/${this.selectedUser.avatar}`;
   }
 
+  // questo metodo aggiorna la UI, cambia il valore di uno stored data, la property selectedUser
+  // angular si accorge di questi cambiamenti tramite la libreria zone.js
   onSelectedUser(): void {
     const randomIndex: number = Math.floor(Math.random() * DUMMY_USERS.length);
     this.selectedUser = DUMMY_USERS[randomIndex];
