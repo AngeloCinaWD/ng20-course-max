@@ -4,4 +4,4 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## [Udemy Course](https://www.udemy.com/course/the-complete-guide-to-angular-2)
 
-## Sezione2: Angular Essentials - Components, Templates, Services & More. [Starting Project](https://github.com/mschwarzmueller/angular-complete-guide-course-resources/blob/main/attachments/02-essentials/01-starting-project.zip)
+## Sezione2: Angular Essentials - Components, Templates, Services & More. [Starting Project](https://github.com/mschwarzmueller/angular-complete-guide-course-resources/tree/main/attachments/02-essentials)
