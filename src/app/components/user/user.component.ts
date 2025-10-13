@@ -10,5 +10,11 @@ const randomIndex: number = Math.floor(Math.random() * DUMMY_USERS.length);
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  selectedUser = DUMMY_USERS[randomIndex];
+  selectedUser: { id: string; name: string; avatar: string } = DUMMY_USERS[randomIndex];
+
+  // creo un getter con la keyword get
+  // una funzione che restituisce qualcosa e viene utilizzata nel template come una semplice proprietà, non va eseguita
+  get imagePath(): string {
+    return `/assets/users/${this.selectedUser.avatar}`;
+  }
 }
