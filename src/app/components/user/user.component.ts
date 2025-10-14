@@ -25,7 +25,7 @@ export class UserComponent {
   @Input({ required: true }) id!: string;
 
   // il decoratore @Output permette di istanziare un EmitterObject che consente di creare un evento customizzato da un component children che può essere ascoltato da un suo parent component
-  @Output() select: EventEmitter<string> = new EventEmitter();
+  @Output() select: EventEmitter<{ id: string; name: string; avatar: string }> = new EventEmitter();
   // stessa cosa con la funzione output(), fa la stessa cosa perchè non crea un signal ma mi permette di creare un EventEmitter senza il decoratore @Output
   // select: OutputEmitterRef<string> = output();
 
@@ -41,6 +41,10 @@ export class UserComponent {
 
   onSelectedUser(): void {
     // in questo metodo richiamo l'emitter select e gli faccio emettere l'id dello user
-    this.select.emit(this.id);
+    this.select.emit({
+      id: this.id,
+      name: this.name,
+      avatar: this.avatar,
+    });
   }
 }
