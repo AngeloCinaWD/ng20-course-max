@@ -12,4 +12,8 @@ import { DUMMY_USERS } from './dummy-users';
 export class App {
   // per passare i dati degli users al componente figlio ho bisogno di accedere ai dati qui
   users: { id: string; name: string; avatar: string }[] = DUMMY_USERS;
+
+  onSelectEvent(event: string) {
+    console.log(event);
+  }
 }

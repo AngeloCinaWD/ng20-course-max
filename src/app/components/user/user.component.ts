@@ -1,4 +1,13 @@
-import { Component, computed, input, Input, InputSignal, Signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  EventEmitter,
+  input,
+  Input,
+  InputSignal,
+  Output,
+  Signal,
+} from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -11,6 +20,10 @@ export class UserComponent {
   // un InputSignal è readonly quindi non si possono utilizzare metodi come set o update
   @Input({ required: true }) avatar!: string;
   @Input() name!: string;
+  @Input({ required: true }) id!: string;
+
+  // il decoratore @Output permette di istanziare un EmitterObject che consente di creare un evento customizzato da un component children che può essere ascoltato da un suo parent component
+  @Output() select: EventEmitter<any> = new EventEmitter();
 
   // avatar = input<string>();
   // avatar: InputSignal<string> = input.required();
@@ -22,5 +35,8 @@ export class UserComponent {
   // dato che le properties sono InputSignal posso utilizzare una computed signal per restituire la src delle immagini
   // imagePath: Signal<string> = computed(() => `/assets/users/${this.avatar()}`);
 
-  onSelectedUser(): void {}
+  onSelectedUser(): void {
+    // in questo metodo richiamo l'emitter select e gli faccio emettere l'id dello user
+    this.select.emit(this.id);
+  }
 }
