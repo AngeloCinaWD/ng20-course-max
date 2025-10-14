@@ -5,7 +5,9 @@ import {
   input,
   Input,
   InputSignal,
+  output,
   Output,
+  OutputEmitterRef,
   Signal,
 } from '@angular/core';
 
@@ -23,7 +25,9 @@ export class UserComponent {
   @Input({ required: true }) id!: string;
 
   // il decoratore @Output permette di istanziare un EmitterObject che consente di creare un evento customizzato da un component children che può essere ascoltato da un suo parent component
-  @Output() select: EventEmitter<any> = new EventEmitter();
+  // @Output() select: EventEmitter<any> = new EventEmitter();
+  // stessa cosa con la funzione output(), fa la stessa cosa perchè non crea un signal ma mi permette di creare un EventEmitter senza il decoratore @Output
+  select: OutputEmitterRef<string> = output();
 
   // avatar = input<string>();
   // avatar: InputSignal<string> = input.required();
