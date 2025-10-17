@@ -34,7 +34,7 @@
         (select)="onSelectEvent($event)"
       ></app-user>
     </li> -->
-    <li>
+    <!-- <li>
       <app-user [user]="users[0]" (select)="onSelectEvent($event)"></app-user>
     </li>
     <li>
@@ -45,7 +45,14 @@
     </li>
     <li>
       <app-user [user]="users[3]" (select)="onSelectEvent($event)"></app-user>
+    </li> -->
+    @for (user of users; track user.id) {
+    <li>
+      <app-user [user]="user" (select)="onSelectEvent($event)"></app-user>
     </li>
+    } @empty {
+    <span>Not users yet</span>
+    }
   </ul>
 </main>
 
