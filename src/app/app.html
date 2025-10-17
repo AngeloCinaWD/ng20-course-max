@@ -2,7 +2,7 @@
 
 <main>
   <ul id="users">
-    <li>
+    <!-- <li>
       <app-user
         [avatar]="users[0].avatar"
         [name]="users[0].name"
@@ -33,6 +33,18 @@
         [id]="users[3].id"
         (select)="onSelectEvent($event)"
       ></app-user>
+    </li> -->
+    <li>
+      <app-user [user]="users[0]" (select)="onSelectEvent($event)"></app-user>
+    </li>
+    <li>
+      <app-user [user]="users[1]" (select)="onSelectEvent($event)"></app-user>
+    </li>
+    <li>
+      <app-user [user]="users[2]" (select)="onSelectEvent($event)"></app-user>
+    </li>
+    <li>
+      <app-user [user]="users[3]" (select)="onSelectEvent($event)"></app-user>
     </li>
   </ul>
 </main>
