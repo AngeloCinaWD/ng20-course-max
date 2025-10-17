@@ -14,7 +14,7 @@ export class App {
   // per passare i dati degli users al componente figlio ho bisogno di accedere ai dati qui
   users: { id: string; name: string; avatar: string }[] = DUMMY_USERS;
 
-  selectedUser: { id: string; name: string; avatar: string } = this.users[0];
+  selectedUser: { id: string; name: string; avatar: string } | undefined;
 
   onSelectEvent(user: { id: string; name: string; avatar: string }) {
     console.log(user);
