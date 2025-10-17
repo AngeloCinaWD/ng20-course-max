@@ -46,19 +46,29 @@
     <li>
       <app-user [user]="users[3]" (select)="onSelectEvent($event)"></app-user>
     </li> -->
-    @for (user of users; track user.id) {
+    <!-- @for (user of users; track user.id) {
     <li>
       <app-user [user]="user" (select)="onSelectEvent($event)"></app-user>
     </li>
     } @empty {
     <span>Not users yet</span>
-    }
+    } -->
+    <li *ngFor="let user of users; trackBy: trackByUserId">
+      <app-user [user]="user" (select)="onSelectEvent($event)"></app-user>
+    </li>
+    <span *ngIf="users.length === 0">Not users yet</span>
   </ul>
 
-  @if (selectedUser) {
-  <!-- <app-tasks [name]="selectedUser?.name"></app-tasks> -->
+  <!-- @if (selectedUser) {
+  <app-tasks [name]="selectedUser?.name"></app-tasks>
   <app-tasks [name]="selectedUser.name"></app-tasks>
   } @else {
   <p id="fallback">Select a user to see his tasks!</p>
-  }
+  } -->
+  <!-- <app-tasks *ngIf="selectedUser" [name]="selectedUser.name"></app-tasks>
+  <p id="fallback">Select a user to see his tasks!</p> -->
+  <app-tasks *ngIf="selectedUser; else noSelectedUser" [name]="selectedUser.name"></app-tasks>
+  <ng-template #noSelectedUser>
+    <p id="fallback">Select a user to see his tasks!</p>
+  </ng-template>
 </main>

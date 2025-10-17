@@ -4,10 +4,11 @@ import { UserComponent } from './components/user/user.component';
 import { DUMMY_USERS } from './dummy-users';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { User } from './interfaces/user.interface';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, UserComponent, TasksComponent],
+  imports: [HeaderComponent, UserComponent, TasksComponent, NgFor, NgIf],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -23,5 +24,9 @@ export class App {
   onSelectEvent(user: User) {
     console.log(user);
     this.selectedUser = user;
+  }
+
+  trackByUserId(index: number, user: User): string {
+    return user.id ?? '';
   }
 }
